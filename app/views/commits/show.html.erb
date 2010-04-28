@@ -1,0 +1,17 @@
+<div class="commit-summary">
+  <div class="span-16">
+  <div class="message"><%= h @commit.message %></div>
+  <div class="committer"><%= h @commit.committer.name %></div>
+  <div class="committed-date"><%= time_ago_in_words @commit.committed_date %> ago</div>
+  </div>
+  <div class="span-4 last">
+    <div class="hash"><%= @commit.id %></div>
+  </div>
+  <div class="clearall"></div>
+</div>
+
+<div class="diffs">
+<% @commit.diffs.each do |diff| %>
+  <%= render :partial => 'diff', :locals => { :diff => diff } %>
+<% end %>
+</div>
