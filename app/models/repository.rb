@@ -1,15 +1,16 @@
 class Repository < ActiveRecord::Base
-  include Grit
+  has_many :commits
 
-  def repo
-    @repo ||= Repo.new(path)
+  def raw_repo
+    @repo ||= Grit::Repo.new(path)
   end
 
-  def commits
-    repo.commits
+  def raw_commits
+    raw_repo.commits
   end
 
   def commit(hash)
-    repo.commits(hash).first
+    raw_commit = raw_repo.commits(hash).first
+    raw_commit && commits.find_or_create_by_sha1(raw_commit.id)
   end
 end
