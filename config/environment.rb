@@ -11,3 +11,5 @@ Rails::Initializer.run do |config|
   config.frameworks -= [ :active_resource ]
   config.time_zone = 'UTC'
 end
+
+require 'diff-display'
