@@ -1,20 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Laizen</title>
-  <%= stylesheet_link_tag 'screen' %>
-  <%= stylesheet_link_tag 'application' %>
-</head>
-<body>
-<div class="container">
-<%= render :partial => 'shared/header' %>
-<p style="color: green"><%= flash[:notice] %></p>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Laizen</title>
+    <%= stylesheet_link_tag 'screen' %>
+    <%= stylesheet_link_tag 'application' %>
+  </head>
+  <body>
+    <div class="container">
+      <%= render :partial => 'shared/header' %>
 
-<%= yield %>
-<%= render :partial => 'shared/footer' %>
-</div><br />&nbsp;
-</body>
-</html>
+      <div id="flash">
+        <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+        <% end -%>
+      </div>
+
+      <%= yield %>
+      <%= render :partial => 'shared/footer' %>
+      </div>
+      <br />&nbsp;
+    </body>
+  </html>
