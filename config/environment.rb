@@ -8,6 +8,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem "grit", :version => '2.0.0'
+  config.gem "clearance", :version => '0.8.8'
   config.frameworks -= [ :active_resource ]
   config.time_zone = 'UTC'
 end
