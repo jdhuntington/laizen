@@ -14,3 +14,5 @@ Rails::Initializer.run do |config|
 end
 
 require 'diff-display'
+require 'grit'
+require 'grit_diff'

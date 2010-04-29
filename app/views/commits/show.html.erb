@@ -1,17 +1,20 @@
 <div class="commit-summary">
   <div class="span-16">
-  <div class="message"><%= h @commit.message %></div>
-  <div class="committer"><%= h @commit.committer.name %></div>
-  <div class="committed-date"><%= time_ago_in_words @commit.committed_date %> ago</div>
+    <div class="message"><%= h @commit.message %></div>
+    <div class="committer">
+      <img src="<%= User.gravatar(@commit.committer.email) -%>" />
+      <%= h @commit.committer.name %>
+    </div>
+    <div class="committed-date"><%= time_ago_in_words @commit.committed_date %> ago</div>
   </div>
   <div class="span-4 last">
-    <div class="hash"><%= @commit.id %></div>
+    <div class="hash"><%= @commit.sha1 %></div>
   </div>
   <div class="clearall"></div>
 </div>
 
 <div class="diffs">
-<% @commit.diffs.each do |diff| %>
+  <% @commit.diffs_with_comments.each do |diff| %>
   <%= render :partial => 'diff', :locals => { :diff => diff } %>
-<% end %>
+  <% end %>
 </div>

@@ -15,7 +15,7 @@
 <hr />
 
 <ul>
-  <% @repository.commits.each do |commit| %>
+  <% @repository.raw_commits.each do |commit| %>
   <li>
     <strong><%= link_to commit.id, repository_commit_url(@repository, commit.id) %></strong>
     <br />

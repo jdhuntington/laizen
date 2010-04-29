@@ -1,6 +1,5 @@
-<h3></h3>
 <table class="code">
-  <tr class="filename"><td colspan="3"><%= h diff.a_path %></td></tr>
-  <%= Diff::Display::Unified.new(diff.diff).render(Diff::Renderer::InlineTableCallback.new) %>
+  <tr class="filename"><td colspan="13"><%= h diff.a_path %></td></tr>
+  <%= Diff::Display::Unified.new(diff.diff).render(Diff::Renderer::InlineTableCallback.with_comments(diff.comments, self)) %>
 </table>
 

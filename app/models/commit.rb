@@ -1,2 +1,24 @@
 class Commit < ActiveRecord::Base
+  has_many :comments, :as => :target
+  belongs_to :repository
+  
+  validates_presence_of :sha1
+  validates_presence_of :repository
+  
+  def message; raw_commit.message; end
+  def committer; raw_commit.committer; end
+  def committed_date; raw_commit.committed_date; end
+  def diffs; raw_commit.diffs; end
+
+  def diffs_with_comments
+    diffs.map do |diff|
+      diff.comments = comments.select { |c| c.path == diff.a_path }
+      diff
+    end
+  end
+
+  private
+  def raw_commit
+    @raw_commit ||= repository.raw_commit(sha1)
+  end
 end

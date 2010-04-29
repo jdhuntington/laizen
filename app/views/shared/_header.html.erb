@@ -1,3 +1,12 @@
 <div id="header">
   <h1>Laizen</h1><em>Read and review code.</em>
 </div>
+<div id="account">
+  <% if current_user %>
+    <img src="<%= current_user.gravatar(:small) -%>" />
+    <%= current_user.name %>
+    <%= link_to 'Sign Out', sign_out_url %>
+  <% else %>
+  
+  <% end %>
+</div>
