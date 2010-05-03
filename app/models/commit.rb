@@ -4,6 +4,8 @@ class Commit < ActiveRecord::Base
   
   validates_presence_of :sha1
   validates_presence_of :repository
+
+  after_create :notify_users
   
   def message; raw_commit.message; end
   def committer; raw_commit.committer; end
@@ -18,6 +20,11 @@ class Commit < ActiveRecord::Base
   end
 
   private
+
+  def notify_users
+    User.all.each { |u| u.notifications.create!(:target => self) }
+  end
+  
   def raw_commit
     @raw_commit ||= repository.raw_commit(sha1)
   end

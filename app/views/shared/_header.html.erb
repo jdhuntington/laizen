@@ -1,7 +1,7 @@
-<div id="header">
+<div id="header" class="span-12">
   <h1>Laizen</h1><em>Read and review code.</em>
 </div>
-<div id="account">
+<div id="account" class="span-12 last">
   <% if current_user %>
     <img src="<%= current_user.gravatar(:small) -%>" />
     <%= current_user.name %>
@@ -10,3 +10,5 @@
   
   <% end %>
 </div>
+<div class="clearall"></div>
+<div class="bump20"></div>

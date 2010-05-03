@@ -1,6 +1,10 @@
 require 'digest/md5'
 
 class User < ActiveRecord::Base
+
+  has_many :comments
+  has_many :notifications
+  
   include Clearance::User
 
   def name
