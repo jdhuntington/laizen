@@ -25,4 +25,9 @@ class User < ActiveRecord::Base
     Digest::MD5.hexdigest txt
   end
 
+  def clear_notifications_on_commit(commit)
+    notifications.select { |notification| raise "I'm not done yet." }.each(&:clear)
+    notifications.find_all_by_target(commit)
+    true
+  end
 end

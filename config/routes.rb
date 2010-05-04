@@ -9,5 +9,6 @@ ActionController::Routing::Routes.draw do |map|
   #     products.resources :comments
   #     products.resources :sales, :collection => { :recent => :get }
   #   end
-  # map.root :controller => "welcome"
+  map.resource :dashboard
+  map.root :controller => "dashboards"
 end

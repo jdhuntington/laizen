@@ -5,7 +5,9 @@ class Notification < ActiveRecord::Base
   validates_presence_of :user
   validates_presence_of :target
 
+  named_scope :unseen, :conditions => { :seen => false }
+  
   def clear
-    destroy
+    udpate_attribute :seen, true
   end
 end
