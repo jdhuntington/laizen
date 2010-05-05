@@ -18,3 +18,15 @@ class Repository < ActiveRecord::Base
     raw_commit && commits.find_or_create_by_sha1(raw_commit.id)
   end
 end
+
+# == Schema Information
+#
+# Table name: repositories
+#
+#  id         :integer         not null, primary key
+#  path       :string(255)
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

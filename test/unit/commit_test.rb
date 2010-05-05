@@ -39,3 +39,15 @@ class CommitTest < ActiveSupport::TestCase
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: commits
+#
+#  id            :integer         not null, primary key
+#  sha1          :string(255)
+#  repository_id :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

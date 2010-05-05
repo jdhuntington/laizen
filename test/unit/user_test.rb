@@ -19,3 +19,19 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  email              :string(255)
+#  encrypted_password :string(128)
+#  salt               :string(128)
+#  confirmation_token :string(128)
+#  remember_token     :string(128)
+#  email_confirmed    :boolean         default(FALSE), not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+

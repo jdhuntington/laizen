@@ -26,8 +26,23 @@ class User < ActiveRecord::Base
   end
 
   def clear_notifications_on_commit(commit)
-    notifications.select { |notification| raise "I'm not done yet." }.each(&:clear)
-    notifications.find_all_by_target(commit)
+    notifications.select { |notification| notification.root_target == commit }.each(&:clear)
     true
   end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  email              :string(255)
+#  encrypted_password :string(128)
+#  salt               :string(128)
+#  confirmation_token :string(128)
+#  remember_token     :string(128)
+#  email_confirmed    :boolean         default(FALSE), not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+

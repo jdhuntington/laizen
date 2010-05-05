@@ -9,3 +9,17 @@ two:
   user_id: 1
   target_id: 1
   target_type: MyString
+
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id          :integer         not null, primary key
+#  user_id     :integer
+#  target_id   :integer
+#  target_type :string(255)
+#  seen        :boolean         default(FALSE)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

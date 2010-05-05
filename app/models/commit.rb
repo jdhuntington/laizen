@@ -19,6 +19,14 @@ class Commit < ActiveRecord::Base
     end
   end
 
+  def non_line_comments
+    comments.reject {|c| c.line_comment? }
+  end
+
+  def repository_id
+    repository.id
+  end
+
   private
 
   def notify_users
@@ -29,3 +37,15 @@ class Commit < ActiveRecord::Base
     @raw_commit ||= repository.raw_commit(sha1)
   end
 end
+
+# == Schema Information
+#
+# Table name: commits
+#
+#  id            :integer         not null, primary key
+#  sha1          :string(255)
+#  repository_id :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

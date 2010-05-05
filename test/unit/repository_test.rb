@@ -22,3 +22,15 @@ class RepositoryTest < ActiveSupport::TestCase
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: repositories
+#
+#  id         :integer         not null, primary key
+#  path       :string(255)
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

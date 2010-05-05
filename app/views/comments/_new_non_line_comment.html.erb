@@ -1,0 +1,7 @@
+<% form_for comment, :url => repository_commit_comments_path(comment.repository_id, comment.commit_id) do |f| %>
+  <fieldset>
+    <legend>Add a new comment</legend>
+    <%= f.text_area :content %>
+    <%= f.submit 'Add Comment' %>
+  </fieldset>
+<% end %>

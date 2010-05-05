@@ -7,6 +7,7 @@
     <title>Laizen</title>
     <%= stylesheet_link_tag 'screen' %>
     <%= stylesheet_link_tag 'application' %>
+
   </head>
   <body>
     <div class="container">
@@ -22,5 +23,9 @@
       <%= render :partial => 'shared/footer' %>
       </div>
       <br />&nbsp;
+
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+    <%= javascript_include_tag "jquery.form.js" %>
+    <%= javascript_include_tag "application.js" %>
     </body>
   </html>

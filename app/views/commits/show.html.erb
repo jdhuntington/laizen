@@ -18,3 +18,14 @@
   <%= render :partial => 'diff', :locals => { :diff => diff } %>
   <% end %>
 </div>
+
+<div id="comment-block">
+  <div id="comments">
+  <% @commit.non_line_comments.each do |comment| %>
+    <%= render :partial => 'comments/non_line_comment', :locals => {
+    :comment => comment } %>
+  <% end %>
+  </div>
+  <%= render :partial => 'comments/new_non_line_comment', :locals => {
+    :comment => @commit.comments.new } %>
+</div>
