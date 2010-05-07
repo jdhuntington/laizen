@@ -1,3 +1,8 @@
 <div class="comment">
-  <%= h comment.content %>
+  <%= h(comment.content) %>
+  <div class="byline">
+    <img src="<%= comment.user.gravatar(:small) -%>" />
+    <%= h(comment.user.name) %>
+    <span class="when"><%= time_ago_in_words comment.created_at %> ago</span>
+  </div>
 </div>
