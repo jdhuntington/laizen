@@ -88,11 +88,12 @@ module Diff
 
              protected
              def render_comment_count(line)
-               if @comment_callback
-                 @comment_callback.count(line)
-               else
-                 ""
-               end
+               # if @comment_callback
+               #   @comment_callback.count(line)
+               # else
+               #   ""
+               # end
+               ''
              end
 
              def render_comments_for(line)
