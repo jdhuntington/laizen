@@ -105,7 +105,7 @@ module Diff
              end
 
              def render_line(line)
-               '<span class="diff-content">' + super + '</span>' + render_comments_for(line)
+               '<div class="diff-content">' + super + '</div>' + render_comments_for(line)
              end
            end
          end

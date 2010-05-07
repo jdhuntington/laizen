@@ -29,3 +29,7 @@
   <%= render :partial => 'comments/new_non_line_comment', :locals => {
     :comment => @commit.comments.new } %>
 </div>
+<script>
+  <% @comment = @commit.comments.new %>
+  var commitCommentUri = '<%= repository_commit_comments_path(@comment.repository_id, @comment.commit_id) -%>';
+</script>
