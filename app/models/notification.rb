@@ -6,6 +6,10 @@ class Notification < ActiveRecord::Base
   validates_presence_of :target
 
   named_scope :unseen, :conditions => { :seen => false }
+ 
+  def summary
+    "I am a notification"
+  end
   
   def clear
     update_attribute :seen, true

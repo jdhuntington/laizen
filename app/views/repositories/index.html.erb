@@ -4,12 +4,14 @@
   <tr>
     <th>Path</th>
     <th>Name</th>
+    <th>Branch</th>
   </tr>
 
 <% @repositories.each do |repository| %>
   <tr>
     <td><%=h repository.path %></td>
     <td><%=h repository.name %></td>
+    <td><%=h repository.branch %></td>
     <td><%= link_to 'Show', repository %></td>
     <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
     <td><%= link_to 'Destroy', repository, :confirm => 'Are you sure?', :method => :delete %></td>

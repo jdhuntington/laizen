@@ -12,6 +12,10 @@ class Commit < ActiveRecord::Base
   def committed_date; raw_commit.committed_date; end
   def diffs; raw_commit.diffs; end
 
+  def summary
+    message[0 .. 140]
+  end
+
   def diffs_with_comments
     diffs.map do |diff|
       diff.comments = comments.select { |c| c.path == diff.a_path }
@@ -25,6 +29,10 @@ class Commit < ActiveRecord::Base
 
   def repository_id
     repository.id
+  end
+
+  def to_param
+    sha1
   end
 
   private

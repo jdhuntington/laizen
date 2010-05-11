@@ -6,16 +6,27 @@ class Repository < ActiveRecord::Base
   end
 
   def raw_commits
-    raw_repo.commits
+    raw_repo.commits(branch)
   end
 
   def raw_commit(sha1)
-    raw_repo.commits(sha1).first
+    raw_repo.commits(sha1,1).first
   end
 
-  def commit(hash)
-    raw_commit = raw_repo.commits(hash).first
-    raw_commit && commits.find_or_create_by_sha1(raw_commit.id)
+  def commit(sha1)
+    raw_commit(sha1) && commits.find_or_create_by_sha1(raw_commit(sha1).id)
+  end
+
+  def remote_update
+    `cd "#{path}" && git remote update`
+  end
+
+  # TODO this should deterministicly figure out what commits to load.
+  # Not just grab 100.
+  def iterate_commits
+    raw_commits.each do |raw_commit|
+      self.commit(raw_commit.sha)
+    end
   end
 end
 

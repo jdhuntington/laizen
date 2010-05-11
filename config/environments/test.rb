@@ -28,3 +28,4 @@ config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
 config.gem 'shoulda', :version => '2.10.3'
 config.gem 'factory_girl', :version => '1.2.4'
+config.gem 'mocha', :version => '0.9.8'

@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     notifications.select { |notification| notification.root_target == commit }.each(&:clear)
     true
   end
+
+  def unseen_grouped_notifications
+    notifications.unseen.group_by &:root_target
+  end
 end
 
 # == Schema Information

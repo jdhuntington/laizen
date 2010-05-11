@@ -35,6 +35,10 @@ class Comment < ActiveRecord::Base
     target.repository_id
   end
 
+  def summary
+    content[0 .. 140]
+  end
+
   private
 
   def notify_users

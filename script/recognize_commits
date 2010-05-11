@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require File.expand_path('../../config/environment',  __FILE__)
+
+Repository.all.each do |repo|
+  repo.remote_update
+  repo.iterate_commits
+end
