@@ -7,7 +7,6 @@ config/*.sphinx.conf
 db/sphinx/*
 db/*.sqlite3
 *.sw[op]
-public/stylesheets/*
 public/javascripts/public_widget.js
 tags
 coverage
